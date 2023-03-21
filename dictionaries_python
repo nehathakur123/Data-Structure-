@@ -1,0 +1,40 @@
+Dictionaries will convert complexity of for loop from n to 1, while searching the element
+
+stock_prices = []
+with open("stock_prices.csv", r) as f:
+  for line in f:
+    tokens = line.split(',')
+    day = tokens[0]
+    price = float(tokens[1])
+    stock_prices.append([day,price])
+    
+#print stock prices
+# stock_prices
+#output:
+#[['march 6', 320.67],
+#['march 16', 321.67],
+#['march 26', 322.67],
+#['march 27', 323.67],
+#['march 28', 324.67],
+#['march 29', 319.67]]
+
+#search element from list
+
+for element in stock_prices:
+  if element[0] == 'march 6':
+    print(element[1])
+    
+#Complexity of above searching is n as it depends on (for element in stock_prices:) for loop
+
+# using dictionary it will reduce to 1
+
+stock_prices = {}
+with open("stock_prices.csv", r) as f:
+  for line in f:
+    tokens = line.split(',')
+    day = tokens[0]
+    price = float(tokens[1])
+    stock_prices[day]= price
+    
+#Search element in dictionary
+print(stock_prices['march 6'])
